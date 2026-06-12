@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+:root {
+
+  /* カード全体の最大幅 */
+  --card-max-width:
+    clamp(22.375rem, 58vw + 0.05rem, 34rem);
+
+  /* 文字サイズ */
+  --font-size-category:
+    clamp(0.625rem, 0.1878vw + 0.581rem, 0.75rem);
+  --font-size-product:
+    clamp(1.75rem, 0.3756vw + 1.662rem, 2rem);
+  --font-size-desc:
+    clamp(0.75rem, 0.1878vw + 0.706rem, 0.875rem);
+  --font-size-price:
+    clamp(1.75rem, 0.3756vw + 1.662rem, 2rem);
+
+  /* 中身の余白 */
+  --card-content-padding:
+    clamp(1.875rem, 0.3756vw + 1.787rem, 2.125rem) clamp(1.813rem, 0.3756vw + 1.725rem, 2.063rem);
+  --btn-padding:
+    clamp(1rem, 0.0939vw + 0.978rem, 1.063rem);
+
+  /* 下幅の余白（margin-bottom） */
+  --margin-category:
+    clamp(1.25rem, 0.5634vw + 1.118rem, 1.625rem);
+  --margin-product:
+    clamp(1.375rem, 0.1878vw + 1.331rem, 1.5rem);
+  --margin-desc:
+    clamp(1.438rem, 0.1878vw + 1.394rem, 1.563rem);
+  --margin-price:
+    clamp(0rem, 2.1596vw - 0.506rem, 1.438rem);
+
+  /* 文字の間隔（letter-spacing） */
+  --letter-spacing-cat:
+    clamp(5px, 0.0188vw + 4.93px, 5.2px);
+  --letter-spacing-desc:
+    clamp(0.2px, -0.0047vw + 0.26px, 0.25px);
+
+  /* 価格の gap（20px 〜 18px） */
+  --price-gap:
+    clamp(1.125rem, 0.1878vw + 1.081rem, 1.25rem);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━ */
+
+.font-mon {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #6c7289;
+}
+.font-mon_bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.font-fra {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+/* ━━━━━━━━━━━━━━━━━━━━ */
+.container {
+  background-color: #f3eae3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: #fff;
+  max-width: var(--card-max-width);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.card-image {
+ min-height: 0;
+}
+.card-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.card-content {
+  padding: var(--card-content-padding);
+}
+
+.card-content_inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.category {
+  font-size: var(--font-size-category);
+  letter-spacing: var(--letter-spacing-cat);
+  margin-bottom: var(--margin-category);
+}
+
+.product-name {
+  font-size: var(--font-size-product);
+  letter-spacing: .5px;
+  line-height: 1.025;
+  margin-bottom: var(--margin-product);
+}  
+
+.description {
+  font-size: var(--font-size-desc);
+  letter-spacing: var(--letter-spacing-desc);
+  line-height: 1.75;
+  margin-bottom: var(--margin-desc);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap:var(--price-gap);
+  margin-bottom: var(--margin-price);
+}
+
+.current {
+  font-size: var(--font-size-price);
+  color: #3d8168;
+}
+
+.old {
+  font-size: var(--font-size-category);
+}
+
+.cart-btn {
+  background: #3d8168;
+  color: #fff;
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: var(--btn-padding);
+  border-radius: .5rem;
+  font-size: var(--font-size-category);
+  letter-spacing: .5px;
+  line-height: 1;
+  transition: .5s;
+}
+.cart-btn:hover {
+  background: #1b4133;
+}
+.cart-btn:focus-visible {
+   outline: 3px solid #1d4133;
+  outline-offset: 2px;
+}
+
+.cart-btn_img {
+  width: 12px;
+}
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 600px) {
+  .container {
+    height: auto;
+    padding-top: 5.25rem;
+    padding-bottom: 11.125rem;
+    width: auto;
+  }
+
+   .card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cart-btn_img {
+    width: 15px;
+  }
+}
